@@ -25,3 +25,7 @@ function thong_ke_tin_tuc(){
     $sql = "SELECT COUNT(*) AS total_tintuc FROM tintuc";
     return pdo_query($sql);
 }
+function thong_ke_san_pham_theo_danhmuc($id){
+    $sql = "SELECT COUNT(*) AS total_products FROM sanpham where iddm=?";
+    return pdo_query($sql,$id);
+}
