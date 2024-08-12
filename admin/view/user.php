@@ -56,7 +56,7 @@ foreach ($kq as $user) {
     </div>
     <script>
 function confirmDelete(id) {
-    if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này?")) {
+    if (confirm("Bạn có chắc chắn muốn xóa thành viên này?")) {
         window.location.href = "index.php?pg=deluser&id=" + id;
         return true;
     } else {

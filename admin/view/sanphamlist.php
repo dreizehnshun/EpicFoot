@@ -1,27 +1,36 @@
 <?php
-   $html_dssp="";
-   $i=1;
+   $html_dssp = "";
+   $i = 1;
    foreach ($dssp as $item) {
-      extract($item);
-      $hinhanh=IMG_PATH_ADMIN.$img;
-      $imgtag="<img src='".$hinhanh."' width='80px'>";
-      $link = "index.php?pg=sanphamchitiet&idpro=" . $id;
-      $html_dssp.='<tr>
-              <td>'.$i.'</td>
-               <td>'.$imgtag.'</td>
-               <td>'.$name.'</td>
-               <td>'.number_format($price,0,",",".").' VNĐ</td>
-              <td>'.$view.'</td>
-               <td>
-                  <a href="index.php?pg=sanphamupdate&id='.$id.'" class="btn btn-warning"
-                    ><i class="fa-solid fa-pen-to-square"></i> Sửa</a
-                  >
-                  <a href="#" onclick="return confirmDelete('.$id.');" class="btn btn-danger">
-    <i class="fa-solid fa-trash"></i> Xóa
-</a>
-                </td>
-            </tr>';
-            $i++;
+       extract($item);
+       $mota_rutgon = (isset($mota) && $mota != "") ? substr($mota, 0, 30) . "..." : "";
+       $hinhanh = IMG_PATH_ADMIN . $img;
+       $imgtag = "<img src='" . $hinhanh . "' width='80px'>";
+       $link = "index.php?pg=sanphamchitiet&idpro=" . $id;
+       $html_dssp .= '<tr>
+           <td>' . $i . '</td>
+           <td>' . $imgtag . '</td>
+           <td>' . $name . '</td>
+           <td>' . number_format($price, 0, ",", ".") . ' VNĐ</td>
+           <td>' . $view . '</td>
+           <td>';
+       if ($bestseller == 1) {
+           $html_dssp .= '<i class="fa-solid fa-check" style="color: #11fa00;"></i>';
+       } else {
+           $html_dssp .= '<i class="fa-solid fa-x" style="color: #ff0000;"></i>';
+       }
+       $html_dssp .= '</td>
+           <td>' . $mota_rutgon . '</td>
+           <td>
+               <a href="index.php?pg=sanphamupdate&id=' . $id . '" class="btn btn-warning">
+                   <i class="fa-solid fa-pen-to-square"></i> Sửa
+               </a>
+               <a href="#" onclick="return confirmDelete(' . $id . ');" class="btn btn-danger">
+                   <i class="fa-solid fa-trash"></i> Xóa
+               </a>
+           </td>
+       </tr>';
+       $i++;
    }
 ?>
 <div class="main-content">
@@ -44,6 +53,8 @@
                 <th>Tên SP</th>
                 <th>GIÁ</th>
                 <th>Lượt xem</th>
+                <th>Sp bestseller</th>
+                <th>Mô tả</th>
                 <th>Thao tác</th>
 
               </tr>
@@ -51,18 +62,7 @@
             
             <tbody>
             <?=$html_dssp;?>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>STT</th>
-                <th>Hình</th>
-                <th>Tên SP</th>
-                <th>GIÁ</th>
-                <th>Lượt xem</th>
-                <th>Thao tác</th>
-              </tr>
-            </tfoot>
-            
+            </tbody>  
           </table>
           <div class="phantrang">
           <?php
