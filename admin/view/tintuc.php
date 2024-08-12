@@ -58,7 +58,7 @@
     </div>
     <script>
 function confirmDelete(id) {
-    if (confirm("Bạn có chắc chắn muốn xóa sản phẩm này?")) {
+    if (confirm("Bạn có chắc chắn muốn xóa tin tức này?")) {
         window.location.href = "index.php?pg=deltin&id=" + id;
         return true;
     } else {

@@ -1,18 +1,18 @@
 <?php
 // require_once 'pdo.php';
 
- function sanpham_insert($name, $img, $price, $iddm){
-     $sql = "INSERT INTO sanpham(name, img, price, iddm) VALUES (?,?,?,?)";
-     pdo_execute($sql, $name, $img, $price, $iddm);
+ function sanpham_insert($name, $img, $price,$iddm,$bestseller,$mota){
+     $sql = "INSERT INTO sanpham(name, img, price, iddm,bestseller,mota) VALUES (?,?,?,?,?,?)";
+     pdo_execute($sql, $name, $img, $price,$iddm,$bestseller,$mota);
  }
 
- function sanpham_update($name, $img, $price,$iddm,$id){
+ function sanpham_update($name, $img, $price,$iddm,$bestseller,$mota,$id){
     if($img!=""){
-     $sql = "UPDATE sanpham SET name=?,img=?,price=?,iddm=? WHERE id=?";
-     pdo_execute($sql, $name, $img, $price, $iddm, $id);
+     $sql = "UPDATE sanpham SET name=?,img=?,price=?,iddm=?,bestseller=?,mota=? WHERE id=?";
+     pdo_execute($name, $img, $price,$iddm,$bestseller,$mota,$id);
     }else{
-        $sql = "UPDATE sanpham SET name=?,price=?,iddm=? WHERE id=?";
-        pdo_execute($sql, $name, $price, $iddm, $id);
+        $sql = "UPDATE sanpham SET name=?,price=?,iddm=?,bestseller=?,mota=? WHERE id=?";
+        pdo_execute($sql, $name, $price, $iddm,$bestseller,$mota, $id);
     }
  }
  function sanpham_delete($id) {

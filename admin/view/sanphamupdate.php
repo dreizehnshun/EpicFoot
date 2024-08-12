@@ -43,7 +43,7 @@ $html_danhmuclist=showdm_admin($danhmuclist,$iddm);
                           </select>
                     </div>
                     <div class="form-group">
-                        <label for="price">Giá gốc:</label>
+                        <label for="price">Giá sản phẩm:</label>
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text">$</span>
@@ -52,24 +52,12 @@ $html_danhmuclist=showdm_admin($danhmuclist,$iddm);
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="price_sale">Giá khuyến mãi:</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-append">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <input type="text" name="price_sale" id="price_sale" class="form-control"
-                                placeholder="Giá khuyến mãi">
-                        </div>
+                        <label for="name">Có phải sản phẩm bestseller ko</label>
+                        <input type="text" class="form-control" name="bestseller" id="bestseller" placeholder="Hãy nhập 1 là có,0 là không">
                     </div>
                     <div class="form-group">
-                        <label>Mô tả ngắn</label>
-                        <textarea class="form-control" name="description" rows="3"
-                            placeholder="Nhập 1 đoạn mô tả ngắn về sản phẩm" style="height: 78px;"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Mô tả chi tiết</label>
-                        <textarea class="form-control" name="detail" rows="3"
-                            placeholder="Nhập 1 đoạn mô tả ngắn về sản phẩm" style="height: 78px;"></textarea>
+                        <label for="name">Mô tả</label>
+                        <input type="text" class="form-control" name="mota" id="mota" placeholder="Nhập mô tả">
                     </div>
                     <div class="form-group">
                         <input type="hidden" name="id" value="<?=$idupdate?>">
