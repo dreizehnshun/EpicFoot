@@ -42,8 +42,9 @@
             $name=$_POST['name'];
             $price=$_POST['price'];
             $iddm=$_POST['iddm'];
+            $bestseller=$_POST['bestseller'];
+            $mota=$_POST['mota'];
             $id=$_POST['id'];
-
             $img=$_FILES['img']['name'];
             if($img!=""){
 
@@ -54,7 +55,7 @@
                 $img="";
             }
             //insert into
-            sanpham_update($name, $img, $price, $iddm,$id);
+            sanpham_update($name, $img, $price,$iddm,$bestseller,$mota,$id);
             }
             // show ds sp
             if(isset($_POST['timkiem'])){
@@ -127,8 +128,10 @@
                 $price=$_POST['price'];
                 $iddm=$_POST['iddm'];
                 $img=$_FILES['img']['name'];
+                $bestseller=$_POST['bestseller'];
+                $mota=$_POST['mota'];
                 //insert into
-                sanpham_insert($name, $img, $price, $iddm);
+                sanpham_insert($name, $img, $price,$iddm,$bestseller,$mota);
                 //upload hình ảnh
                 $target_file=IMG_PATH_ADMIN.$img;
                 move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
